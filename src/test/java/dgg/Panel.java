@@ -1,10 +1,12 @@
 package dgg;
 
 public enum Panel {
-    EVENT("События пользователей"),
-    ADVANTAGE("Преимущества"),
-    REVIEW("Отзывы"),
-    FEEDBACK("Обратная связь");
+    ARTICLES("Статьи"),
+    NEWS("Новости"),
+    HUBS("Хабы"),
+    AUTHORS("Авторы"),
+    COMPANIES("Компании");
+
 
     private String desc;
 

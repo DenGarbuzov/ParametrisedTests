@@ -1,4 +1,4 @@
 package dgg;
 
-public class MethodSourceTest {
+public class MethodSourceTest extends Main{
 }

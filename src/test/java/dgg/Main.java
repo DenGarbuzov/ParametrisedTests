@@ -1,6 +1,5 @@
 package dgg;
 
-import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -8,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class Main {
-    String baseUrl = "https://skylove.su/";
-    public SelenideElement panelFirst = $(".nav-main");
+    String baseUrl = "https://habr.com/ru/all/",
+            panelFirstLink = ".tm-tabs__tab-item";
 
 
 

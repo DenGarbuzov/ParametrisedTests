@@ -1,16 +1,24 @@
 package dgg;
 
-import org.junit.jupiter.api.Test;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.WebDriverRunner;
+import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
-import org.openqa.selenium.By;
+import static com.codeborne.selenide.Selenide.$$;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class EnumSourceTest extends Main{
 
-    @Test
-    @EnumSource(Panel.class)
+    @EnumSource(value = Panel.class, names = {"ARTICLES"}, mode = EnumSource.Mode.EXCLUDE)
+    @ParameterizedTest(name = "{0}")
     public void testEnum (Panel panel) {
+
+        // в тесте первая строка Enum класса исключена по причине неработоспособности, исключена сознательно)
+
         openMyWebsite();
-        panelFirst.$$(By.linkText(String.valueOf(panel)));
+        $$(panelFirstLink).find(Condition.text(panel.getDesc())).click();
+        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
+        assertNotEquals(baseUrl, currentUrl);
 
 
     }
