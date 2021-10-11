@@ -13,7 +13,8 @@ public class Main {
     String baseUrl = "https://habr.com/ru/all/",
             panelFirstLink = ".tm-tabs__tab-item",
            mainUrl = "https://habr.com",
-            google = "https://google.com";
+            google = "https://google.com",
+            yandex = "https://ya.ru";
 
 
 

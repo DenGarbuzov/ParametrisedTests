@@ -15,6 +15,7 @@ public class MethodSourceTest extends Main{
 
     static Stream<String> testWithDefaultString() {
         return Stream.of(randomName(), randomName(), randomName(),
+                randomName(), randomName(), randomName(),
                 randomName(), randomName(), randomName());
     }
 
@@ -22,7 +23,8 @@ public class MethodSourceTest extends Main{
         return Stream.of(
                 Arguments.of("Peter", 28, 178, 90),
                 Arguments.of("Molly", 23, 170, 55),
-                Arguments.of("Fura",99, 165, 60));
+                Arguments.of("Fura",99, 165, 60),
+                Arguments.of("Halk",40, 350, 750));
     }
 
     @ParameterizedTest
@@ -33,6 +35,16 @@ public class MethodSourceTest extends Main{
         $(".gLFyf").setValue(arg).pressEnter();
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
         assert currentUrl.contains("search?q="+arg);
+    }
+
+    @ParameterizedTest
+    @MethodSource("testWithDefaultString")
+    void testWith_MethodSourceYandex(String arg) {
+        assertNotNull(arg);
+        open(yandex);
+        $("#text").setValue(arg).pressEnter();
+        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
+        assert currentUrl.contains(arg);
     }
 
     @ParameterizedTest
