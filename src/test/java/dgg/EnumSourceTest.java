@@ -10,10 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 public class EnumSourceTest extends Main{
 
     @EnumSource(value = Panel.class, names = {"ARTICLES"}, mode = EnumSource.Mode.EXCLUDE)
-    @ParameterizedTest(name = "{0}")
+    @ParameterizedTest(name = "We are testing Enum with parameters: {0}")
     public void testEnum (Panel panel) {
 
-        // в тесте первая строка Enum класса исключена по причине неработоспособности, исключена сознательно)
+        // в тесте первая строка Enum класса "ARTICLES" исключена по причине неработоспособности, исключена сознательно)
 
         openMyWebsite();
         $$(panelFirstLink).find(Condition.text(panel.getDesc())).click();
