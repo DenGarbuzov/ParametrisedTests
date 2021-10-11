@@ -1,19 +1,21 @@
 package dgg;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class MethodSourceTest extends Main{
 
     static Stream<String> testWithDefaultString() {
-        return Stream.of(randomName(), randomName(), randomName(), randomName(), randomName(), randomName(),
-                randomName(), randomName(), randomName(), randomName(), randomName(), randomName(), randomName(),
-                randomName(), randomName(), randomName(), randomName(), randomName(), randomName(), randomName());
+        return Stream.of(randomName(), randomName(), randomName(),
+                randomName(), randomName(), randomName());
     }
 
     static Stream<Arguments> testWithIntAndStrings() {
@@ -26,8 +28,11 @@ public class MethodSourceTest extends Main{
     @ParameterizedTest
     @MethodSource("testWithDefaultString")
     void testWith_MethodSource(String arg) {
-        System.out.println("testWith_MethodSource(arg) => "+arg);
         assertNotNull(arg);
+        open(google);
+        $(".gLFyf").setValue(arg).pressEnter();
+        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
+        assert currentUrl.contains("search?q="+arg);
     }
 
     @ParameterizedTest

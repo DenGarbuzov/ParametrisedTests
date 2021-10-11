@@ -12,7 +12,8 @@ public class Main {
 
     String baseUrl = "https://habr.com/ru/all/",
             panelFirstLink = ".tm-tabs__tab-item",
-           mainUrl = "https://habr.com";
+           mainUrl = "https://habr.com",
+            google = "https://google.com";
 
 
 
@@ -24,6 +25,6 @@ public class Main {
 
     public static String randomName() {
         Faker faker = new Faker();
-        return faker.name().name();
+        return faker.name().firstName();
     }
 }
