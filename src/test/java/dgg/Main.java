@@ -11,7 +11,8 @@ public class Main {
 
 
     String baseUrl = "https://habr.com/ru/all/",
-            panelFirstLink = ".tm-tabs__tab-item";
+            panelFirstLink = ".tm-tabs__tab-item",
+           mainUrl = "https://habr.com";
 
 
 

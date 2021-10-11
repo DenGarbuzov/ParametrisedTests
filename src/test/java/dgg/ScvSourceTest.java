@@ -37,10 +37,10 @@ public class ScvSourceTest extends Main{
     })
     @ParameterizedTest(name = "Searching element on web page: {0}")
     void searchElementsInDome(String searchQuery) {
-        open(baseUrl);
+        open(mainUrl);
         $$(".tm-main-menu__item").filterBy(Condition.href(searchQuery)).first().click();
         sleep(1000);
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        assertEquals(baseUrl + searchQuery, currentUrl);
+        assertEquals(mainUrl + searchQuery, currentUrl);
     }
 }

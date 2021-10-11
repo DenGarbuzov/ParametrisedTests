@@ -1,6 +1,5 @@
 package dgg;
 
-import com.github.javafaker.Faker;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -34,6 +33,9 @@ public class MethodSourceTest extends Main{
     @ParameterizedTest
     @MethodSource()
     void testWithIntAndStrings(String arg, int arg1, int arg2, int arg3) {
+
+        // название теста такое как и у метода (как часть теста)
+
         String wc = String.valueOf(arg2/arg3);
         System.out.println("\n"+ arg + " is my name and I am " + arg1 + " years old.\nMy Height is " + arg2 +
                 " my weight is "+ arg3 + "!\nMy weight coefficient is " + wc );
